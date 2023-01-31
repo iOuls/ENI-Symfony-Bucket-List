@@ -6,10 +6,10 @@
         <li><img class="team-trombi" src="{{teamate.picture}}" alt="Photo de {{ teamate.firstname }} {{teamate.lastname}}">
         <p>
             {% if teamate.firstname == 'Fabien' %}
-            ❤
+            &#128151
             {% endif %}
             <b>{{ teamate.firstname }} {{teamate.lastname}}</b> - {{teamate.dateOfBirth | date('d/m/Y')}}
-            Créateur de {{teamate.creatorOf}} <br>{{teamate.description}}</p></li><br><br>
+            Créateur de <b>{{teamate.creatorOf}}</b> <br>{{teamate.description}}</p></li><br><br>
     {% endfor %}
     </ul>
 {% endblock %}
