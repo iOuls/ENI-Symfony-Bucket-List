@@ -1,0 +1,83 @@
+/*
+Couleurs :
+header : 165 165 141
+body : 255 241 230
+footer : 237 220 210
+ */
+@font-face {
+    font-family: 'Ch&Li';
+    src: url('../media/font/Champagne & Limousines.ttf');
+}
+@font-face {
+    font-family: 'Ch&Li Bold';
+    src: url('../media/font/Champagne & Limousines Bold.ttf');
+}
+@font-face {
+    font-family: 'Ch&Li Bold Italic';
+    src: url('../media/font/Champagne & Limousines Bold Italic.ttf');
+}
+@font-face {
+    font-family: 'Ch&Li Italic';
+    src: url('../media/font/Champagne & Limousines Italic.ttf');
+}
+
+body{
+    background-color: rgb(255, 241, 230);
+    font-weight: lighter;
+    font-family: "Ch&Li";
+    font-size : 14px;
+}
+
+a{
+    text-decoration: none;
+    color: black;
+ }
+
+.header-container{
+    background-color: rgb(165, 165, 141);
+    border-top-left-radius: 30px;
+    border-top-right-radius: 30px;
+    display: flex;
+    align-items: flex-start;
+    flex-direction: column;
+    margin: 0;
+    box-shadow: 5px 5px rgba(0,0,0,.15);
+}
+.header-box{
+    margin-left: 15vw;
+    display: flex;
+    align-items: flex-start;
+    flex-direction: row;
+}
+.bucket{
+    font-family: "Ch&Li Bold";
+    font-size: 2.5em;
+    margin: 0;
+    margin-top: 30px;
+}
+.contenu{
+    margin-left: 15vw;
+}
+.logo{
+    width: 45px;
+    margin: 0;
+    margin-top: 10px;
+}
+.footer{
+    display: flex;
+    background-color: rgb(237, 220, 210);
+    border-bottom-left-radius: 30px;
+    border-bottom-right-radius: 30px;
+    position: absolute;
+    bottom : 1em;
+    width: 97.5%;
+    height: 50px;
+    text-align : center;
+    justify-content: center;
+    align-items: center;
+    font-family: "Ch&Li Italic";
+    box-shadow: 5px 5px rgba(0,0,0,.15);
+}
+.titre-page{
+    font-family: "Ch&Li Bold Italic";
+}
