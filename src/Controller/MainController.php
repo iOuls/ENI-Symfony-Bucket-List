@@ -15,4 +15,13 @@ class MainController extends AbstractController
             'controller_name' => 'MainController',
         ]);
     }
+
+    #[Route('/aboutus', name: 'main_aboutus')]
+    public function aboutus(): Response
+    {
+        $team = json_decode(file_get_contents('../data/team.json'));
+        return $this->render('main/aboutus.html.twig', [
+            'team' => $team,
+        ]);
+    }
 }
