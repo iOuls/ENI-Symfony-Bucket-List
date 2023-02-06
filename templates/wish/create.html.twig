@@ -5,24 +5,32 @@
 {% endblock %}
 
 {% block body %}
+
     <h2>Ajouter un nouveau souhait</h2>
 
     {{ form_start(wishForm) }}
 
-    <label>{{ field_label(wishForm.title) }} : </label>
-    <div>{{ form_widget(wishForm.title) }}</div>
-
-    <label>{{ field_label(wishForm.description) }} : </label>
-    <div>{{ form_widget(wishForm.description) }}</div>
-
-    <label>{{ field_label(wishForm.author) }} : </label>
-    <div>{{ form_widget(wishForm.author) }}</div>
-
-    {{ form_widget(wishForm.isPublished) }}<label> {{ field_label(wishForm.isPublished) }}</label>
-
     <div>
-        <button>Envoyer !</button>
-    </div>
+        {{ form_errors(wishForm.title) }}
+        {{ form_errors(wishForm.description) }}
+        {{ form_errors(wishForm.author) }}
+        {{ form_errors(wishForm.isPublished) }}
+    </div><br>
+
+    <label>{{ field_label(wishForm.title) }} :</label>
+    <div>{{ form_widget(wishForm.title) }}</div><br>
+
+
+    <label>{{ field_label(wishForm.description) }} :</label>
+    <div>{{ form_widget(wishForm.description) }}</div><br>
+
+    <label>{{ field_label(wishForm.author) }} :</label>
+    <div>{{ form_widget(wishForm.author) }}</div><br>
+
+    <label> {{ field_label(wishForm.isPublished) }} :</label>
+    <div>{{ form_widget(wishForm.isPublished) }}</div>
+
+    <button>Envoyer !</button>
 
     {{ form_end(wishForm) }}
 {% endblock %}

@@ -9,7 +9,7 @@
             </div>
         {% endfor %}
     {% endfor %}
-    <ul>
+    <ul class="list-souhaits">
         {% for wish in wishList %}
             <a href="{{ path('wish_detail', {'id' : wish.id}) }}">
                 <li>{{ wish.title }}</li>
