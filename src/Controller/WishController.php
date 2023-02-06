@@ -55,7 +55,7 @@ class WishController extends AbstractController
             $em->persist($wish);
             $em->flush();
 
-            $this->addFlash('Ajout effectué', 'Votre souhait a été ajouté avec succès');
+            $this->addFlash('Submit succeed', 'Wish successfully added !');
 
             return $this->redirectToRoute('wish_list');
         }

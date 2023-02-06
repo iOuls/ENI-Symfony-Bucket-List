@@ -6,7 +6,7 @@
 
 {% block body %}
 
-    <h2>Ajouter un nouveau souhait</h2>
+    <h2>Create a new Wish</h2>
 
     {{ form_start(wishForm) }}
 
@@ -26,7 +26,7 @@
     <label>{{ field_label(wishForm.author) }} :</label>
     <div>{{ form_widget(wishForm.author) }}</div><br>
 
-    <button>Envoyer !</button>
+    <button>Submit !</button>
 
     {{ form_end(wishForm) }}
 {% endblock %}

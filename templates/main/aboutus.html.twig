@@ -2,17 +2,18 @@
 
 {% block body %}
     <ul style="list-style: none;">
-    {%  for teamate in team %}
-        <li><img class="team-trombi" src="{{teamate.picture}}" alt="Photo de {{ teamate.firstname }} {{teamate.lastname}}">
-        <p>
-            {{ (teamate.firstname == 'Fabien') ? '&#128151' : '' }}
-            <b>{{ teamate.firstname }} {{teamate.lastname}}</b> - {{teamate.dateOfBirth | date('d/m/Y')}}
-            Créateur de <b>{{teamate.creatorOf}}</b> <br>{{teamate.description}}</p></li><br><br>
-    {% endfor %}
+        {% for teamate in team %}
+            <li><img class="team-trombi" src="{{ teamate.picture }}"
+                     alt="Photo {{ teamate.firstname }} {{ teamate.lastname }}">
+                <p>
+                    {{ (teamate.firstname == 'Fabien') ? '&#128151' : '' }}
+                    <b>{{ teamate.firstname }} {{ teamate.lastname }}</b> - {{ teamate.dateOfBirth | date('d/m/Y') }}
+                    Creator of <b>{{ teamate.creatorOf }}</b> <br>{{ teamate.description }}</p></li><br><br>
+        {% endfor %}
     </ul>
 {% endblock %}
 
 {% block title %}
-    {{ parent() }} > A propos de nous
+    {{ parent() }} > About us
 {% endblock %}
 
