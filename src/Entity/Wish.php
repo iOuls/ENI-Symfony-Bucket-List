@@ -28,11 +28,11 @@ class Wish
     #[ORM\Column(type: Types::TEXT, nullable: true)]
     private ?string $description = null;
 
-    #[Assert\NotBlank(message: 'L\'autheur ne peut pas être vide.')]
+    #[Assert\NotBlank(message: 'L\'auteur ne peut pas être vide.')]
     #[Assert\Type(type: "string", message: 'Le titre doit être de type texte.')]
     #[Assert\Length(min: 2, max: 50,
-        minMessage: 'L\'autheur doit avoir 2 caractères minimum.',
-        maxMessage: 'L\'autheur ne peut avoir plus de 50 caractères.')]
+        minMessage: 'L\'auteur doit avoir 2 caractères minimum.',
+        maxMessage: 'L\'auteur ne peut avoir plus de 50 caractères.')]
     #[ORM\Column(length: 50)]
     private ?string $author = null;
 
