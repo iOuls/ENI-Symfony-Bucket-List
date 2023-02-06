@@ -35,7 +35,6 @@ class Wish
     #[ORM\Column(length: 50)]
     private ?string $author = null;
 
-    #[Assert\Type("bool", message: 'La publication doit être vrai ou fausse.')]
     #[ORM\Column]
     private ?bool $isPublished = null;
 

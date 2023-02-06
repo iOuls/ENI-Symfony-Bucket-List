@@ -16,10 +16,7 @@ class WishType extends AbstractType
         $builder
             ->add('title', TextType::class, ['label' => 'Titre'])
             ->add('description', TextType::class, ['label' => 'Description'])
-            ->add('author', TextType::class, ['label' => 'Auteur'])
-            ->add('isPublished', ChoiceType::class, [
-                'choices' => ['oui' => true, 'non' => false],
-                'label' => 'Publié']);
+            ->add('author', TextType::class, ['label' => 'Auteur']);
     }
 
     public function configureOptions(OptionsResolver $resolver): void
