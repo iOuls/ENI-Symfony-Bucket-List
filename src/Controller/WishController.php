@@ -46,11 +46,11 @@ class WishController extends AbstractController
     ): Response
     {
         $wish = new Wish();
+        $wish->setDateCreated(new \DateTime());
         $wishForm = $this->createForm(WishType::class, $wish);
         $wishForm->handleRequest($request);
 
         if ($wishForm->isSubmitted() && $wishForm->isValid()) {
-            $wish->setDateCreated(new \DateTime());
             $em->persist($wish);
             $em->flush();
 
