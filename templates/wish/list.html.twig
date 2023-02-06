@@ -1,13 +1,20 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
+
+    {% for label, messages in app.flashes %}
+        {% for message in messages %}
+            <div class="alter-{{ label }}">
+                {{ message }}
+            </div>
+        {% endfor %}
+    {% endfor %}
     <ul>
-        <li>Lorem.
-        </li>
-        <li>Adipisci!
-        </li>
-        <li>Dolorem.
-        </li>
+        {% for wish in wishList %}
+            <a href="{{ path('wish_detail', {'id' : wish.id}) }}">
+                <li>{{ wish.title }}</li>
+            </a>
+        {% endfor %}
     </ul>
 {% endblock %}
 
