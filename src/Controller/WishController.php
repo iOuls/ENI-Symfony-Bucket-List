@@ -46,17 +46,23 @@ class WishController extends AbstractController
     ): Response
     {
         $wish = new Wish();
-        $wish->setDateCreated(new \DateTime());
-        $wish->setIsPublished(true);
         $wishForm = $this->createForm(WishType::class, $wish);
         $wishForm->handleRequest($request);
 
-        if ($wishForm->isSubmitted() && $wishForm->isValid()) {
-            $em->persist($wish);
+
+        if ($wishForm->isSubmitted()) {
+            try {
+                $wish->setDateCreated(new \DateTime());
+                $wish->setIsPublished(true);
+
+                if ($wishForm->isValid()) {
+                    $em->persist($wish);
+                }
+            } catch (Exception $e) {
+                dd($e->getMessage());
+            }
             $em->flush();
-
             $this->addFlash('Submit succeed', 'Wish successfully added !');
-
             return $this->redirectToRoute('wish_list');
         }
 

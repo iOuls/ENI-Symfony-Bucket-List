@@ -12,7 +12,7 @@
     <ul class="list-souhaits">
         {% for wish in wishList %}
             <a href="{{ path('wish_detail', {'id' : wish.id}) }}">
-                <li>{{ wish.title }}</li>
+                <li>{{ wish.title }} [{{ wish.category.name }}]</li>
             </a>
         {% endfor %}
     </ul>
