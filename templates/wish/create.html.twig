@@ -23,8 +23,10 @@
     <label>{{ field_label(wishForm.description) }} :</label>
     <div>{{ form_widget(wishForm.description) }}</div><br>
 
-    <label>{{ field_label(wishForm.author) }} :</label>
-    <div>{{ form_widget(wishForm.author) }}</div><br>
+    <label>{{ field_label(wishForm.author) }} :</label><br>
+    <input type="text" name="{{ field_label(wishForm.author) }}" id="{{ field_label(wishForm.author) }}"
+           value="{{ app.user.username }}"><br>
+    <!--<div>{{ form_widget(wishForm.author) }}</div>--><br>
 
     <label>{{ field_label(wishForm.category) }} :</label>
     <div>{{ form_widget(wishForm.category) }}</div><br>
