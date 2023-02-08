@@ -9,7 +9,7 @@
     {{ form_start(wishForm) }}
 
     <h2>Create a new Wish</h2>
-    
+
     <div>
         {{ form_errors(wishForm.title) }}
         {{ form_errors(wishForm.description) }}
@@ -24,9 +24,7 @@
     <div>{{ form_widget(wishForm.description) }}</div><br>
 
     <label>{{ field_label(wishForm.author) }} :</label><br>
-    <input type="text" name="{{ field_label(wishForm.author) }}" id="{{ field_label(wishForm.author) }}"
-           value="{{ app.user.username }}"><br>
-    <!--<div>{{ form_widget(wishForm.author) }}</div>--><br>
+    <div>{{ form_widget(wishForm.author, {value: app.user.username }) }}</div><br>
 
     <label>{{ field_label(wishForm.category) }} :</label>
     <div>{{ form_widget(wishForm.category) }}</div><br>

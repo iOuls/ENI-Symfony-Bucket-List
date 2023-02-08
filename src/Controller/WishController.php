@@ -4,6 +4,7 @@ namespace App\Controller;
 
 use App\Entity\Wish;
 use App\Form\WishType;
+use App\Repository\UserRepository;
 use App\Repository\WishRepository;
 use Doctrine\ORM\EntityManager;
 use Doctrine\ORM\EntityManagerInterface;
@@ -42,13 +43,19 @@ class WishController extends AbstractController
     #[Route('/create', name: '_create')]
     public function create(
         EntityManagerInterface $em,
-        Request                $request
+        Request                $request,
+        UserRepository         $userRepository
     ): Response
     {
         $wish = new Wish();
+
+        // ajout de l'auteur pour affichage à la création du wish
+        $utilisateur = $userRepository->findOneBy(['username' => $this->getUser()->getUserIdentifier()]);
+        $wish->setAuthor($utilisateur->getUsername());
+        // OU $wish->setAuthor($this->getUser()->getUserIdentifier());
+
         $wishForm = $this->createForm(WishType::class, $wish);
         $wishForm->handleRequest($request);
-
 
         if ($wishForm->isSubmitted()) {
             try {

@@ -20,6 +20,7 @@ class ChangePasswordFormType extends AbstractType
                 'options' => [
                     'attr' => [
                         'autocomplete' => 'new-password',
+                        'label' => 'Password'
                     ],
                 ],
                 'first_options' => [
@@ -43,8 +44,7 @@ class ChangePasswordFormType extends AbstractType
                 // Instead of being set onto the object directly,
                 // this is read and encoded in the controller
                 'mapped' => false,
-            ])
-        ;
+            ]);
     }
 
     public function configureOptions(OptionsResolver $resolver): void
