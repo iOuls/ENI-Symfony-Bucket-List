@@ -9,10 +9,11 @@ use App\Repository\WishRepository;
 use Doctrine\ORM\EntityManager;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\Config\Definition\Exception\Exception;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
-use Symfony\Component\Validator\Constraints\DateTime;
+use Symfony\Component\Security\Http\Attribute\IsGranted;
 
 #[Route('/wish', name: 'wish')]
 class WishController extends AbstractController
@@ -40,6 +41,7 @@ class WishController extends AbstractController
         ]);
     }
 
+    #[IsGranted('ROLE_USER')]
     #[Route('/create', name: '_create')]
     public function create(
         EntityManagerInterface $em,
