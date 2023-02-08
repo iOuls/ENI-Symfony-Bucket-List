@@ -6,6 +6,7 @@ use App\Entity\Wish;
 use App\Form\WishType;
 use App\Repository\UserRepository;
 use App\Repository\WishRepository;
+use App\Services\Censurator;
 use Doctrine\ORM\EntityManager;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -46,7 +47,8 @@ class WishController extends AbstractController
     public function create(
         EntityManagerInterface $em,
         Request                $request,
-        UserRepository         $userRepository
+        UserRepository         $userRepository,
+        Censurator             $censurator
     ): Response
     {
         $wish = new Wish();
@@ -63,6 +65,10 @@ class WishController extends AbstractController
             try {
                 $wish->setDateCreated(new \DateTime());
                 $wish->setIsPublished(true);
+
+                $wish->setTitle($censurator->purify($wish->getTitle()));
+                $wish->setDescription($censurator->purify($wish->getDescription()));
+                $wish->setAuthor($censurator->purify($wish->getAuthor()));
 
                 if ($wishForm->isValid()) {
                     $em->persist($wish);
